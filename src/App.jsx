@@ -1,10 +1,18 @@
 import { useState } from 'react'
-import './App.css'
+import Board from './components/Board/Board'
 
 function App() {
+  
+  
   return (
-    <div className="App">
-      
+    <div className="container">
+        <header>
+          <h1>Tic-Tac-Toe</h1>
+        </header>
+        <Board />
+        <footer>
+
+        </footer>
     </div>
   )
 }

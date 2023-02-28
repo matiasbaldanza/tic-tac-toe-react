@@ -1,0 +1,51 @@
+@use 'colors' as *;
+
+body {
+    background-color: $color-bg;
+    height: calc(100vh - 2rem);
+    display: grid;
+    place-items: center;
+    
+    .container {
+        margin: 0 auto;
+        text-align: center;
+        background-color: $color-container;
+        padding: 32px;
+        @include rounded;
+
+
+
+        .board {
+            background-color: $color-board;
+            margin: 0 auto;
+            width: 400px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+
+            .cell {
+                background-color: $color-container; 
+                aspect-ratio: 1 / 1;
+                padding: 4px;
+                display: grid;
+                place-items:center;
+
+                // &:hover::before {
+                //     content: url('../assets/cross.svg')               
+                // }
+            }
+
+            .cross::before {
+                content: url('../assets/cross.svg');
+            }
+
+            .circle::before {
+                content: url('../assets/circle.svg');
+            }
+        }
+    }
+    
+}
+
+
