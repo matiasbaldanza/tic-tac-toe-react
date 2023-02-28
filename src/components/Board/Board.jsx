@@ -1,16 +1,7 @@
 import { useState } from "react"
 import Cell from "../Cell/Cell"
 
-export default function Board() {
-    const [board, setBoard] = useState(Array(9).fill(null))
-    
-    function handleClick (index) {
-        const updatedBoard = [...board]
-        updatedBoard[index] = "circle"
-        setBoard(updatedBoard)
-        console.log(updatedBoard)
-    }
-
+export default function Board({turn, board, handleClick}) {
     return (
         <div className="board">
             {board.map((cell, index) => 
