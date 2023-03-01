@@ -1,10 +1,23 @@
-@use 'colors' as *;
+@use 'constants' as *;
+@use 'reset';
+
+h1 {
+    font-size: 4rem;
+    color: $color-primary;
+    margin: 0;
+    text-shadow: $shadow-text-h1;
+}
+
+h2 {
+    font-size: 3rem;
+}
 
 body {
     background-color: $color-bg;
     height: calc(100vh - 2rem);
     display: grid;
     place-items: center;
+    font-family: 'Concert One', sans-serif;
     
     .container {
         margin: 0 auto;
@@ -12,8 +25,9 @@ body {
         background-color: $color-container;
         padding: 32px;
         @include rounded;
-
-
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
 
         .board {
             background-color: $color-board;
@@ -30,10 +44,19 @@ body {
                 padding: 4px;
                 display: grid;
                 place-items:center;
+                transition: transform 150ms;
 
-                // &:hover::before {
-                //     content: url('../assets/cross.svg')               
-                // }
+                &.turn-cross:hover::after {
+                    content: url('../assets/cross.svg');
+                    transform:translate($raise-height, $raise-height);
+                    filter: drop-shadow(3px 7px 0 $color-mark-hover);
+                }
+                
+                &.turn-circle:hover::after {
+                    content: url('../assets/circle.svg');
+                    transform:translate($raise-height, $raise-height);
+                    filter: drop-shadow(3px 7px 0 $color-mark-hover);
+                }
             }
 
             .cross::before {
@@ -43,6 +66,16 @@ body {
             .circle::before {
                 content: url('../assets/circle.svg');
             }
+        }
+
+        footer {
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 3rem;
+            vertical-align: middle;
         }
     }
     

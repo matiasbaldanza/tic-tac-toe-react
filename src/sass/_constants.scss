@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+$color-bg: #FF78F0;
+$color-container: white;
+$color-board: #A41ACB;
+
+$color-primary: #39B5E0;
+$color-secondary: #A31ACB;
+$color-secondary-darker: #510d65;
+$color-secondary-lighter: #FF78F0;
+$color-contrast: #F5EA5A;
+
+$color-mark-hover: #B0B0B088;
+$lower-height: 5px;
+$raise-height: calc($lower-height * -1);
+
+$shadow-text-h1: 0px 7px 0px $color-contrast;
+
+$radius: 16px;
+
+@mixin rounded {
+    border-radius: $radius;
+}
+

@@ -8,6 +8,7 @@ export default function Board({turn, board, handleClick}) {
                         <Cell 
                             key={index}
                             value={board[index]}
+                            hover={turn}
                             handleClick={() => handleClick(index)}
                         />)
             }
