@@ -5,9 +5,12 @@ import GameEndBanner from './components/GameEndBanner/GameEndBanner'
 
 function App() {
 
-  const [board, setBoard] = useState(Array(9).fill(null))
+  const resetBoard = () => Array(9).fill(null)
+
+  const [board, setBoard] = useState(() => resetBoard())
   const [turn, setTurn] = useState(players[0])
   const [winner, setWinner] = useState(null)
+
 
   function swapTurn() {
     setTurn(prevState => prevState === players[0] ? players[1] : players[0])
@@ -17,6 +20,12 @@ function App() {
     return winningCombinations.some( combination =>
         combination.every( cell => updatedBoard[cell] === turn )
     )
+  }
+
+  function resetGame() {
+    setBoard(resetBoard)
+    setTurn(players[0])
+    setWinner(null)
   }
 
   function handleClick (index) {
@@ -52,15 +61,16 @@ function App() {
           handleClick={handleClick}
         />
         <footer>
-         { winner ?  <GameEndBanner winner={winner}/> : ''}
+         { winner 
+            ?  <>
+                  <GameEndBanner winner={winner}/>
+                  <button onClick={resetGame} autoFocus>RESTART</button> 
+                </>
+            : ''
+          }
         </footer>
     </div>
   )
 }
 
 export default App
-
-// TODO: End game banner
-// TODO: Reset game button
-// TODO: Reset game function
-
