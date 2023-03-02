@@ -1,18 +1,12 @@
 @use 'constants' as *;
 @use 'reset';
-
-h1 {
-    font-size: 4rem;
-    color: $color-primary;
-    text-shadow: $shadow-text-h1;
-}
+@use 'typography';
 
 body {
     background-color: $color-bg;
     height: calc(100vh - 2rem);
     display: grid;
     place-items: center;
-    font-family: 'Concert One', sans-serif;
     
     .container {
         margin: 0 auto;
@@ -77,6 +71,18 @@ body {
             align-items: center;
 
             font-size: 2.5rem;
+
+            h2 {
+                width: 100%;
+            }
+
+            h2.cross {
+                color: $color-player1;
+            }
+            
+            h2.circle {
+                color: $color-player2;
+            }
         }
     }
     

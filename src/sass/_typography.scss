@@ -1,0 +1,16 @@
+@use 'constants' as *;
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+body {
+    font-family: 'Concert One', sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+    color: $color-primary;
+    text-shadow: $shadow-text-h1;
+}
+
+h2 {
+    font-size: 3rem;
+}

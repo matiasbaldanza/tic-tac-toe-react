@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
-
 $color-bg: #FF78F0;
 $color-container: white;
 $color-board: #A41ACB;
@@ -9,6 +7,9 @@ $color-secondary: #A31ACB;
 $color-secondary-darker: #510d65;
 $color-secondary-lighter: #FF78F0;
 $color-contrast: #F5EA5A;
+
+$color-player1: $color-primary;
+$color-player2: $color-secondary-lighter;
 
 $color-mark-hover: #B0B0B088;
 $lower-height: 5px;
