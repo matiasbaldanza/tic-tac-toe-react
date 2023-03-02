@@ -58,6 +58,16 @@ body {
                 content: url('../assets/circle.svg');
             }
 
+            .win-cross::before {
+                content: url('../assets/cross.svg');
+                filter: drop-shadow(0px 0px 15px $color-win-highlight);
+            }
+
+            .win-circle::before {
+                content: url('../assets/circle.svg');
+                filter: drop-shadow(0px 0px 15px $color-win-highlight);
+            }
+
             .cross::before, 
             .circle::before {
                 transform: scale(0.9);

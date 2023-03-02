@@ -12,15 +12,16 @@ function App() {
   const [turn, setTurn] = useState(players[0])
   const [winner, setWinner] = useState(null)
 
-
   function swapTurn() {
     setTurn(prevState => prevState === players[0] ? players[1] : players[0])
   }
 
   function thereIsAWinner(updatedBoard) {
-    return winningCombinations.some( combination =>
+    const result = winningCombinations.find( combination =>
         combination.every( cell => updatedBoard[cell] === turn )
     )
+    console.log(result)
+    return result
   }
 
   function resetGame() {
@@ -35,12 +36,17 @@ function App() {
 
     const updatedBoard = [...board]
     updatedBoard[index] = turn
-    setBoard(updatedBoard)
-
-    if ( thereIsAWinner(updatedBoard) ) {
+    
+    const winningMove = thereIsAWinner(updatedBoard)
+    console.log(winningMove)
+    if ( winningMove ) {
       setWinner(turn)
-      return
+      winningMove.map( (cell, index) => updatedBoard[cell] = 'win-' + updatedBoard[cell] )
+      setBoard(updatedBoard)
+      return 
     }
+    
+    setBoard(updatedBoard)
 
     if ( updatedBoard.every(cell => cell !== null) ) {
       setWinner('draw')
@@ -67,7 +73,7 @@ function App() {
                   <GameEndBanner winner={winner}/>
                   <button onClick={resetGame} autoFocus>RESTART</button> 
                 </>
-            : <NotificationsBanner />
+            : <NotificationsBanner turn={turn}/>
           }
         </footer>
     </div>
