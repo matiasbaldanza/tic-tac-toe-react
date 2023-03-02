@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { players, winningCombinations } from './constants'
 import Board from './components/Board/Board'
 import GameEndBanner from './components/GameEndBanner/GameEndBanner'
+import NotificationsBanner from './components/NotificationsBanner/NotificationsBanner'
 
 function App() {
 
@@ -66,7 +67,7 @@ function App() {
                   <GameEndBanner winner={winner}/>
                   <button onClick={resetGame} autoFocus>RESTART</button> 
                 </>
-            : ''
+            : <NotificationsBanner />
           }
         </footer>
     </div>
