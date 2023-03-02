@@ -43,14 +43,16 @@ body {
 
                 &.turn-cross:hover::after {
                     content: url('../assets/cross.svg');
-                    transform:translate($raise-height, $raise-height);
-                    filter: drop-shadow(3px 7px 0 $color-mark-hover);
                 }
                 
                 &.turn-circle:hover::after {
                     content: url('../assets/circle.svg');
-                    transform:translate($raise-height, $raise-height);
-                    filter: drop-shadow(3px 7px 0 $color-mark-hover);
+                }
+                
+                &.turn-cross:hover::after, 
+                &.turn-circle:hover::after {
+                    transform:translate(0, $raise-height);
+                    filter: drop-shadow(0px 7px 0 $color-mark-hover);
                 }
             }
 
@@ -60,6 +62,11 @@ body {
 
             .circle::before {
                 content: url('../assets/circle.svg');
+            }
+
+            .cross::before, 
+            .circle::before {
+                transform: scale(0.9);
             }
         }
 
